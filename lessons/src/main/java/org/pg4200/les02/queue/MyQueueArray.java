@@ -99,6 +99,7 @@ public class MyQueueArray<T> implements MyQueue<T>{
         }
 
         data[tail] = value;
+
     }
 
     @Override
