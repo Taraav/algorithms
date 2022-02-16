@@ -29,48 +29,40 @@ public class MyRingArrayQueue<T> implements MyQueue<T> {
         } else if(head <= tail){
 
             if(tail < data.length - 1) {
-                //simple case
                 tail++;
             } else {
-                //ring: start from the beginning, but only if space available
                 if(head != 0){
                     tail = 0;
                 } else {
-                    //opss, array is totally full, so let's make a copy in a bigger one
-                    Object[] tmp = new Object[data.length * 2];
+
+                    Object[] data2 = new Object[data.length * 2];
 
                     for(int i=0; i<data.length; i++){
-                        tmp[i] = data[i];
+                        data2[i] = data[i];
                     }
-                    data = tmp;
+                    data = data2;
                     tail++;
                 }
             }
         } else {
-            assert tail < head;
 
             if(tail < head - 1){
-                // still space available
                 tail++;
             } else {
-                /*
-                    array is totally full. but making copy is not trivial,
-                    as we need to make sure to re-align such that head=0 && head < tail
-                 */
-                Object[] tmp = new Object[data.length * 2];
+                Object[] data3 = new Object[data.length * 2];
 
                 int k = data.length - head;
                 for(int i=0; i<k; i++){
-                    tmp[i] = data[head + i];
+                    data3[i] = data[head + i];
                 }
 
                 for(int i=0; i< (tail+1); i++){
-                    tmp[k + i] = data[i];
+                    data3[k + i] = data[i];
                 }
 
                 head = 0;
                 tail = data.length;
-                data = tmp;
+                data = data3;
             }
         }
 
