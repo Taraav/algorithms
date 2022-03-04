@@ -15,22 +15,48 @@ public class OptimizedBubbleSort {
 
         //comparator.compare(x, y);
 
-        while(swapped){
-            swapped = false;
+        if(!optimized) {
+            while (swapped) {
+                swapped = false;
 
-            for(int i = 0; i < array.length - 1; i ++){
-                int j = i + 1;
+                for (int i = 0; i < array.length - 1; i++) {
+                    int j = i + 1;
 
-                sum ++;
+                    sum++;
 
-                if(comparator.compare(array[i], array[j]) > 0){
-                    T tmp = array[i];
-                    array[i] = array[j];
-                    array[j] = tmp;
+                    if (comparator.compare(array[i], array[j]) > 0) {
+                        T tmp = array[i];
+                        array[i] = array[j];
+                        array[j] = tmp;
 
-                    swapped = true;
+                        swapped = true;
+                    }
+
                 }
+            }
+        }else{
+            int lastNumber = array.length - 1;
+            int limit;
 
+            while(swapped){
+                limit = lastNumber;
+                swapped = false;
+
+                for(int i = 0; i < limit; i ++){
+                    int j = i + 1;
+
+                    sum ++;
+
+                    if(comparator.compare(array[i], array[j]) > 0){
+                        T tmp = array[i];
+                        array[i] = array[j];
+                        array[j] = tmp;
+
+                        swapped = true;
+                        lastNumber = i;
+
+                    }
+                }
             }
         }
         return sum;
