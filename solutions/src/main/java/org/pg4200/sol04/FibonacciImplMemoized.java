@@ -12,7 +12,7 @@ public class FibonacciImplMemoized implements Fibonacci {
         when a value has not been computed yet by checking if null.
         If I rather was using int, then I would not be able to distinguish a 0 from
         a non-set value.
-        However, in the case of Fibonacci sequence, it would not be be a problem, because
+        However, in the case of Fibonacci sequence, it would not be a problem, because
         only the very first value can be a 0.
      */
     private final Integer[] cache = new Integer[100];
