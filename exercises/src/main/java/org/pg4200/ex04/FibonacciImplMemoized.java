@@ -2,10 +2,11 @@ package org.pg4200.ex04;
 
 public class FibonacciImplMemoized implements Fibonacci{
 
-    int[] x = new int[100];
+    int[] x = new int[101];
 
     @Override
     public int compute(int n) throws IllegalArgumentException {
+
         if(n < 0){
             throw new IllegalArgumentException("Negative input: " + n);
         }

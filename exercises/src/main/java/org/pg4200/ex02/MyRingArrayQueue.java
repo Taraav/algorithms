@@ -78,16 +78,9 @@ public class MyRingArrayQueue<T> implements MyQueue<T> {
         T value = (T) data[head];
 
         if(size() == 1){
-            //now it ll be empty
             head = -1;
             tail = -1;
         } else {
-            /*
-                Removing this line will still make all tests pass, as it
-                is not a functional bug: it only impacts performance.
-                It is done to avoid "memory leaks" in which we keep unused
-                objects that cannot be garbage-collected.
-             */
             data[head] = null;
             head++;
         }

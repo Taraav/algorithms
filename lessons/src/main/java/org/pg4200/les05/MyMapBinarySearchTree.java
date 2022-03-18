@@ -52,9 +52,9 @@ public class MyMapBinarySearchTree<K extends Comparable<K>, V> implements MyMapT
             return node;
         }
 
-        int cmp = key.compareTo(subtree.key);
+        int cmp = key.compareTo(subtree.key); //this will give some sort of int value.
 
-        if (cmp < 0) {
+        if (cmp < 0) { //if it's smaller, insert into left side tree.
             subtree.left = put(key, value, subtree.left);
             return subtree;
         }
@@ -95,12 +95,12 @@ public class MyMapBinarySearchTree<K extends Comparable<K>, V> implements MyMapT
 
         int cmp = key.compareTo(subtreeRoot.key);
 
-        if (cmp < 0) {
+        if (cmp < 0) { //if its less, the left subtree should delete it.
             subtreeRoot.left = delete(key, subtreeRoot.left);
             return subtreeRoot;
         }
 
-        if (cmp > 0) {
+        if (cmp > 0) { //if its more, the right subtree deletes it.
             subtreeRoot.right = delete(key, subtreeRoot.right);
             return subtreeRoot;
         }
